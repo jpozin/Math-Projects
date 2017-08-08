@@ -1,6 +1,6 @@
 plot6 <- function(xvar, yvar, dotcol=2, bgcol="papayawhip"){
   #Plots 6 common functions of a graph in order to help the user
-  #Identify which plot is the most linear.
+  #Identify which plot is the most linear and determine an appropriate data tranformation.
   #xvar = explanatory variable
   #yvar = dependent variable
   #dotcol = dot color (default 2 for red)
