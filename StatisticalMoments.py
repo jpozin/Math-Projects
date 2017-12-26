@@ -35,7 +35,7 @@ def skew(rv):
     return (third - 3*mean*sd**2 - mean**3) / sd**3
 
 def kurt(rv):
-    """Rreturn the kurtosis of the random variable"""
+    """Return the kurtosis of the random variable"""
     moments = moments(rv)
     mean = moments[0]
     sd = sqrt(moments[1] - moments[0]**2)
