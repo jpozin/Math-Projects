@@ -24,7 +24,7 @@ def var(rv):
 
 def sd(rv):
     """Return the standard deviation of the random variable"""
-    return sqrt(var(data))
+    return sqrt(var(rv))
 
 def skew(rv):
     """Return the skewness of the random variable"""
