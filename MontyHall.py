@@ -1,7 +1,7 @@
 from random import randrange
 
 door_choice = int(input("Will you pick door 1, 2, or 3 every time? "))
-switch_strategy = int(input("Will you stay (0) or switch(1) every time? "))
+switch_strategy = int(input("Will you stay (0) or switch (1) every time? "))
 runs = int(input("How many times do you want to run this simulation? "))
 wins = 0
 losses = 0
