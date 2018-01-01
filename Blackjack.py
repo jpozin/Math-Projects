@@ -74,3 +74,4 @@ if __name__ == '__main__':
 				print(message)
 		elif action == 'h':
 			# Write code for when the player hits
+			pass
