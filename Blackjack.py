@@ -37,6 +37,7 @@ if __name__ == '__main__':
 		deck = pydealer.Deck()
 		stack.add(deck)
 	stack.shuffle()
+	cardnum = 0
 	while cardnum < len(stack) - 10: # The -10 is in case there are many hits
 		dealer_total = 0
 		player_total = 0
@@ -47,7 +48,7 @@ if __name__ == '__main__':
 		player_stack = pydealer.Stack()
 		player_stack.add((x[1], x[3]))
 		player_string = 'Your cards are:\n'
-		for card in player_deck:
+		for card in player_stack:
 			player_string += f'\t{card.value} of {card.suit}\n'
 		player_string += f'Your current total is {sumCardList(player_stack)}'
 		print(player_string + '\n')
