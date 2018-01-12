@@ -10,6 +10,6 @@ def MonteCarloIntegrate(lambda_exp=lambda x: x, interval=(0, 1), n=1000):
 	a = interval[0]
 	b = interval[1]
 	assert a < b, "The lower bound of the interval must be less than the upper bound of the interval"
-	random_nums = [a + (b-a)*num for num in rand(n)]
+	random_nums = [(a + (b-a)*num) for num in rand(n)]
 	my_map = map(lambda_exp, random_nums)
 	return mean(my_map)
