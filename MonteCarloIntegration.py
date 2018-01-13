@@ -1,7 +1,7 @@
 from numpy.random import rand
 from statistics import mean
 
-def MonteCarloIntegrate(lambda_exp=lambda x: x, interval=(0, 1), n=1000):
+def MonteCarloIntegrate(lambda_exp=lambda x: x, interval=(0, 1), n=10000):
 	"""Use Monte Carlo integration to estimate the area under the curve of a function
 	lambda_exp (lambda function) is a lambda expression; it is the function to be integrated
 	interval (tuple(num, num)) is a tuple of int and/or float values; it is the interval over which the function is being integrated
