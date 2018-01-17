@@ -15,3 +15,7 @@ def ExpoNum(rate):
 	assert rate > 0, "lambda (rate) must be positive"
 	return (-1/rate)*log1p(random()-1)
 
+def DiscUnifNum(a, b):
+	"""Generate a discrete uniformly distributed number in the interval [a, b]"""
+	assert a < b, "a must be less than b"
+	return round(UnifNum(a-.5, b+.5))
