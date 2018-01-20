@@ -3,7 +3,7 @@
 # It is intended to be instructional and provide a glimpse at random number simulation using inverse transform sampling
 
 from random import random
-from math import log1p, pi, exp, sqrt, floor
+from math import log1p, floor
 
 def UnifNum(a, b):
 	"""Generate a uniformly distributed random number in the interval (a, b)"""
