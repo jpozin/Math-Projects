@@ -21,7 +21,7 @@ def DiscUnifNum(a, b):
 	return round(UnifNum(a-.5, b+.5))
 
 def DiscUnifNum2(a, b):
-	"""Another way to generate discrete uniformly distributed numbers in the interval [a, b]"""
+	"""Another way to generate a discrete uniformly distributed number in the interval [a, b]"""
 	assert a < b, "a must be less than b"
 	return floor(UnifNum(a, b+1))
 
