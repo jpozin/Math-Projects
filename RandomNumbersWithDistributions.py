@@ -3,7 +3,7 @@
 # It is intended to be instructional and provide a glimpse at random number simulation using inverse transform sampling
 
 from random import random
-from math import log1p, pi, exp, sqrt
+from math import log1p, pi, exp, sqrt, floor
 
 def UnifNum(a, b):
 	"""Generate a uniformly distributed random number in the interval (a, b)"""
@@ -19,6 +19,11 @@ def DiscUnifNum(a, b):
 	"""Generate a discrete uniformly distributed number in the interval [a, b]"""
 	assert a < b, "a must be less than b"
 	return round(UnifNum(a-.5, b+.5))
+
+def DiscUnifNum2(a, b):
+	"""Another way to generate discrete uniformly distributed numbers in the interval [a, b]"""
+	assert a < b, "a must be less than b"
+	return floor(UnifNum(a, b+1))
 
 def DiscreteDistNum(pmf_dict):
 	"""Generate a random number with a given pmf
