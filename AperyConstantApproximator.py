@@ -1,14 +1,23 @@
 #Estimate the Apery Constant using a Monte Carlo method
 
-#Created by Joel Pozin on 5/5/2017
-
 from math import gcd
 from random import randrange
+from sys import getrecusionlimit
 
 def gcd3(alist):
     """Returns the gcd of a list of 3 integers"""
     assert len(alist) == 3, "There must 3 integers in the list"
     return gcd(alist[0], gcd(alist[1],alist[2]))
+
+def gcd_many(alist):
+	"""Returns the gcd of a list of several (at least 2) ints.
+	The sie of the list must be less than or equal to the system's recursion limit to avoid recursion depth exceptions."""
+	assert len(alist) >= 1, "The size of the input list must be at least 2"
+	assert len(alist) <= getrecursionlimit(), f"The size of the list must be less than {getrecursionlimit()} in order to avoid maximum recusrion depth exceptions"
+	if len(alist) == 2:
+		return gcd(alist[0], alist[1])
+	else:
+		return gcd(alist[0], gcd_many(alist[1:]))
 
 def aperyEstimate(num):
     count = 0
