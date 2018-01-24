@@ -6,7 +6,9 @@ from math import gcd
 from random import randrange
 
 def gcd3(alist):
-    return gcd(alist[0],gcd(alist[1],alist[2]))
+    """Returns the gcd of a list of 3 integers"""
+    assert len(alist) == 3, "There must 3 integers in the list"
+    return gcd(alist[0], gcd(alist[1],alist[2]))
 
 def aperyEstimate(num):
     count = 0
