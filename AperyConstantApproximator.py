@@ -11,7 +11,8 @@ def gcd3(alist):
 
 def gcd_many(alist):
 	"""Returns the gcd of a list of several (at least 2) ints.
-	The sie of the list must be less than or equal to the system's recursion limit to avoid recursion depth exceptions."""
+	The sie of the list must be less than or equal to the system's recursion limit to avoid recursion depth exceptions.
+	This function serves no prupose in this module, but may be used freely in other programs."""
 	assert len(alist) >= 1, "The size of the input list must be at least 2"
 	assert len(alist) <= getrecursionlimit(), f"The size of the list must be less than {getrecursionlimit()} in order to avoid maximum recusrion depth exceptions"
 	if len(alist) == 2:
