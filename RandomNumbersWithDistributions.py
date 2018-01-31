@@ -1,6 +1,6 @@
 # This module is intended to generate random numbers with specific distributions using only a uniform (0, 1) random number
 # This module is not intended to provide a better alternative to pre-existing functions of similar scope
-# It is intended to be instructional and provide a glimpse at random number simulation using inverse transform sampling
+# It is intended to be instructional and provide a glimpse at random number generation using inverse transform sampling
 
 from random import random
 from math import log1p, floor
