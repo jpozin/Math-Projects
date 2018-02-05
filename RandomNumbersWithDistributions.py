@@ -16,9 +16,17 @@ def ExpoNum(rate):
 	return (-1/rate)*log1p(random()-1)
 
 def BernoulliNum(p):
-	"""Generate a Bernoulli random number with parameter p"""
+	"""Generate a Bernoulli random number with parameter p (float)"""
 	assert 0 < p < 1, "Probability parameter p must be between 0 an 1, exclusive"
 	return 1 if 0 < random() <= p else 0
+
+def BinomialNum(n, p):
+	"""Generate a binomial random number with parameters n (int) and p (float)"""
+	assert type(n) == int, "n must be an integer"
+	assert n >= 1, "n must be greater than or equal to 1"
+	assert 0 < p < 1, "p must be between 0 and 1, exclusive"
+	return sum([BernoulliNum(p) for x in range(n)])
+
 
 def DiscUnifNum(a, b):
 	"""Generate a discrete uniformly distributed number in the interval [a, b]"""
