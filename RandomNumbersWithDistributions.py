@@ -15,6 +15,11 @@ def ExpoNum(rate):
 	assert rate > 0, "lambda (rate) must be positive"
 	return (-1/rate)*log1p(random()-1)
 
+def BernoulliNum(p):
+	"""Generate a Bernoulli random number with parameter p"""
+	assert 0 < p < 1, "Probability parameter p must be between 0 an 1, exclusive"
+	return 1 if 0 < random() <= p else 0
+
 def DiscUnifNum(a, b):
 	"""Generate a discrete uniformly distributed number in the interval [a, b]"""
 	assert a < b, "a must be less than b"
