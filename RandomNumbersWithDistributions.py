@@ -4,8 +4,11 @@
 
 from random import random
 from math import log1p, floor
-# log1p is used instead of log because it is more accurate for values near zero
+# log1p is imported because it is more accurate for small values
 # log1p(x) == log(1+x)
+
+def log(x):
+	return log1p(x-1)
 
 def UnifNum(a, b):
 	"""Generate a uniformly distributed random number in the interval (a, b)"""
@@ -15,7 +18,7 @@ def UnifNum(a, b):
 def ExpoNum(rate):
 	"""Generate an exponentially distributed random number with positive rate lambda"""
 	assert rate > 0, "lambda (rate) must be positive"
-	return (-1/rate)*log1p(random()-1)
+	return (-1/rate)*log(random())
 
 def BernoulliNum(p):
 	"""Generate a Bernoulli distributed random number with parameter p (float)"""
@@ -34,7 +37,7 @@ def GeometricNum(p):
 	p is strictly between 0 and 1
 	Support is {1, 2, 3, ...}"""
 	assert 0 < p < 1, "p must be between 0 and 1, exclusive"
-	return floor(log1p(random()-1) / log1p(-p))
+	return floor(log(random()) / log(1-p))
 
 def DiscUnifNum(a, b):
 	"""Generate a discrete uniformly distributed number in the interval [a, b]"""
