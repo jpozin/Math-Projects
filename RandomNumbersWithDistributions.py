@@ -4,6 +4,8 @@
 
 from random import random
 from math import log1p, floor
+# log1p is used instead of log because it is more accurate for values near zero
+# log1p(x) == log(1+x)
 
 def UnifNum(a, b):
 	"""Generate a uniformly distributed random number in the interval (a, b)"""
@@ -16,17 +18,23 @@ def ExpoNum(rate):
 	return (-1/rate)*log1p(random()-1)
 
 def BernoulliNum(p):
-	"""Generate a Bernoulli random number with parameter p (float)"""
+	"""Generate a Bernoulli distributed random number with parameter p (float)"""
 	assert 0 < p < 1, "Probability parameter p must be between 0 an 1, exclusive"
 	return 1 if 0 < random() <= p else 0
 
 def BinomialNum(n, p):
-	"""Generate a binomial random number with parameters n (int) and p (float)"""
+	"""Generate a binomially distributed random number with parameters n (int) and p (float)"""
 	assert type(n) == int, "n must be an integer"
 	assert n >= 1, "n must be greater than or equal to 1"
 	assert 0 < p < 1, "p must be between 0 and 1, exclusive"
 	return sum([BernoulliNum(p) for x in range(n)])
 
+def GeometricNum(p):
+	"""Generate a geometrically distributed number given parameter p (float)
+	p is strictly between 0 and 1
+	Support is {1, 2, 3, ...}"""
+	assert 0 < p < 1, "p must be between 0 and 1, exclusive"
+	return floor(log1p(random()-1) / log1p(-p))
 
 def DiscUnifNum(a, b):
 	"""Generate a discrete uniformly distributed number in the interval [a, b]"""
@@ -39,7 +47,7 @@ def DiscUnifNum2(a, b):
 	return floor(UnifNum(a, b+1))
 
 def DiscreteDistNum(pmf_dict):
-	"""Generate a random number with a given pmf
+	"""Generate a random number from a discrete distribution with a given pmf
 	pmf_dict (dict) is a dictionary of the form {x:Pr(x)}, where x is a real numeric type and 0 <= Pr(x) <= 1
 	Sum of probabilities in pmf_dict must equal 1 for the pmf to be valid"""
 	assert sum(pmf_dict.values()) == 1, "Probabilities of pmf must sum to 1"
