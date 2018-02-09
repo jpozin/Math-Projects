@@ -8,6 +8,7 @@ from math import log1p, exp, floor
 # log1p(x) == log(1+x)
 
 def log(x):
+	"""Call the natural logarithm function using the log1p function in order to maintain high accuracy for near-zero values of x (real)"""
 	return log1p(x-1)
 
 def UnifNum(a, b):
