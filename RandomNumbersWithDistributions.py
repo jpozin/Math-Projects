@@ -3,7 +3,7 @@
 # It is intended to be instructional and provide a glimpse at random number generation using inverse transform sampling
 
 from random import random
-from math import log1p, floor
+from math import log1p, exp, floor
 # log1p is imported because it is more accurate for small values
 # log1p(x) == log(1+x)
 
@@ -48,6 +48,12 @@ def DiscUnifNum2(a, b):
 	"""Another way to generate a discrete uniformly distributed number in the interval [a, b]"""
 	assert a < b, "a must be less than b"
 	return floor(UnifNum(a, b+1))
+
+def WeibullNum(alpha, lambd):
+	"""Generate a Weibull-distributed number with shape parameter alpha > 0 (float) and scale parameter lambd > 0 (float)"""
+	assert alpha > 0, "alpha (shape parameter) must be greater than zero"
+	assert lambd > 0, "lambda (scale parameter) must be greater than zero"
+	return exp((1/alpha)*log((-1/lambd**alpha)*log(random())))
 
 def DiscreteDistNum(pmf_dict):
 	"""Generate a random number from a discrete distribution with a given pmf
