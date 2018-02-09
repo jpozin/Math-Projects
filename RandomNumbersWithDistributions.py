@@ -51,7 +51,8 @@ def DiscUnifNum2(a, b):
 	return floor(UnifNum(a, b+1))
 
 def WeibullNum(alpha, lambd):
-	"""Generate a Weibull-distributed number with shape parameter alpha > 0 (float) and scale parameter lambd > 0 (float)"""
+	"""Generate a Weibull-distributed number with shape parameter alpha > 0 (float) and scale parameter lambd > 0 (float)
+	The Weibull(alpha, lambd) distribution has pdf f(t)=(alpha*lambd)(lambd*t)**(alpha-1)*exp(-(lambd*t)**alpha)"""
 	assert alpha > 0, "alpha (shape parameter) must be greater than zero"
 	assert lambd > 0, "lambda (scale parameter) must be greater than zero"
 	return exp((1/alpha)*log((-1/lambd**alpha)*log(random())))
