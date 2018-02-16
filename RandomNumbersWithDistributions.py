@@ -55,7 +55,7 @@ def WeibullNum(alpha, lambd):
 	The Weibull(alpha, lambd) distribution has pdf f(t)=(alpha*lambd)(lambd*t)**(alpha-1)*exp(-(lambd*t)**alpha)"""
 	assert alpha > 0, "alpha (shape parameter) must be greater than zero"
 	assert lambd > 0, "lambda (scale parameter) must be greater than zero"
-	return exp((1/alpha)*log((-1/lambd**alpha)*log(random())))
+	return (1/lambd)*(-log(random()))**(1/alpha)
 
 def DiscreteDistNum(pmf_dict):
 	"""Generate a random number from a discrete distribution with a given pmf
