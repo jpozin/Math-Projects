@@ -21,6 +21,15 @@ def ExpoNum(rate):
 	assert rate > 0, "lambda (rate) must be positive"
 	return (-1/rate)*log(random())
 
+def ErlangNum(n, rate):
+	"""Generate an Erlang-distributed random number with parameter n (int) and rate (float)
+	The Erlang distribution is the sum of n iid exponentially distributed numbers with rate = rate
+	n and rate must be positive numbers"""
+	assert type(n) == int, "Parameter n must be an integer"
+	assert n >= 1, "Parameter n must be greater than or equal to 1"
+	assert rate > 0, "lambda (rate) must be positive"
+	return sum([ExpoNum(rate) for x in range(n)])
+
 def BernoulliNum(p):
 	"""Generate a Bernoulli distributed random number with parameter p (float)"""
 	assert 0 < p < 1, "Probability parameter p must be between 0 an 1, exclusive"
