@@ -59,6 +59,14 @@ def DiscUnifNum2(a, b):
 	assert a < b, "a must be less than b"
 	return floor(UnifNum(a, b+1))
 
+def ParetoNum(alpha):
+	"""Generate a Pareto-distributed number given parameter alpha (float)
+	alpha must be greater than zero
+	Scale parameter not included, so support of distribution is x >= 1
+	To apply a scale parameter m, call m + ParetoNum(alpha)"""
+	assert alpha > 0, "alpha must be greater than zero"
+	return pow(random(), -1/alpha)
+
 def WeibullNum(alpha, lambd):
 	"""Generate a Weibull-distributed number with shape parameter alpha > 0 (float) and scale parameter lambd > 0 (float)
 	The Weibull(alpha, lambd) distribution has pdf f(t)=(alpha*lambd)(lambd*t)**(alpha-1)*exp(-(lambd*t)**alpha)"""
