@@ -37,7 +37,7 @@ def ListToString(alist, useAssert=False):
 if __name__ == '__main__':
 	desiredstr = argv[1]
 	showstrings = False
-	if len(argv) >= 2:
+	if len(argv) >= 3:
 		showstrings = bool(argv[2].lower() in ('1', 'true', 't'))
 	x = UnboundedBogoGenerateText(desiredstr, showstrings)
 	print(f"It took {x} iterations to generate '{desiredstr}'")
