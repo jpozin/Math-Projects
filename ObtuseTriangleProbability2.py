@@ -1,19 +1,25 @@
 # This module is intended to determine the probability a triangle is obtuse
-# Given that its vertices are determined uniformly in the unit square
+# Given that its vertices are determined uniformly in the unit circle
 
 from numpy.random import rand
 from numpy import mean, std
 from scipy.stats import sem, t
 import matplotlib.pyplot as plt
-from math import sqrt, acos, pi
+from math import sqrt, acos, pi, cos, sin
 from itertools import combinations
 from sys import argv
 
 def CreateTriangle():
 	"""Creates a random triangle in the unit square
 	Returns a list with three points of the form (x, y)
-	These coordinates are generated uniformly in the unit square"""
-	return [(x, y) for x, y in zip(rand(3), rand(3))]
+	These coordinates are generated uniformly in the unit circle"""
+	vertices = []
+	for i in range(3):
+		theta = 2*pi*rand()
+		u = rand() + rand()
+		r = 2-u if u > 1 else u
+		vertices.append((r*cos(theta), r*sin(theta)))
+	return vertices
 
 def DistPoints(p1, p2):
 	"""Calculate the distance between two points of the form (x, y)"""
