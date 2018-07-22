@@ -62,7 +62,8 @@ def isAcute(alist):
 	return True
 
 def CI_mean(alist, alpha=.95, round_num=False):
-	"""Generate a confidence interval about the mean of a list of numbers with confidence alpha"""
+	"""Generate a confidence interval about the mean of a list of numbers with confidence alpha
+	Specify a round_num (int) to round the values of your confidence interval to round_num decimal places"""
 	mu, s = mean(alist), sem(alist)
 	n = len(alist)
 	HL = s * t.ppf((1+alpha)/2, n-1)
