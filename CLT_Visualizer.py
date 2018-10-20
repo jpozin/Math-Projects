@@ -1,3 +1,6 @@
+# This module is intended to illustrate the central limit theorem (sum and average versions) as it applies to several common distributions
+# It is intended to be instructional
+
 import matplotlib.pyplot as plt
 from statistics import mean, pstdev
 from RandomNumbersWithDistributions import *
@@ -37,6 +40,11 @@ def HistSum(dist, n, tot):
 		alpha = float(input("Enter a value for α (scale parameter): "))
 		for i in range(tot):
 			Z_vals.append(sum([ParetoNum(alpha) for _ in range(n)]))
+	if dist in ('weibull', 'wb', 'wbl'):
+		alpha = float(input("Enter a value for α (shape parameter): "))
+		lambd = float(input("Enter a value for λ (scale parameter): "))
+		for i in range(tot):
+			Z_vals.append(sum([WeibullNum(alpha, lambd) for _ in range(n)]))
 
 
 	to_print =  (f"The mean of this collection of random variables is:  {mean(Z_vals)}"
@@ -82,6 +90,11 @@ def HistAvg(dist, n, tot):
 		alpha = float(input("Enter a value for α (scale parameter): "))
 		for i in range(tot):
 			Z_vals.append(sum([ParetoNum(alpha) for _ in range(n)]))
+	if dist in ('weibull', 'wb', 'wbl'):
+		alpha = float(input("Enter a value for α (shape parameter): "))
+		lambd = float(input("Enter a value for λ (scale parameter): "))
+		for i in range(tot):
+			Z_vals.append(sum([WeibullNum(alpha, lambd) for _ in range(n)]))
 
 	Z_vals = [_/n for _ in Z_vals]
 
