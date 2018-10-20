@@ -61,43 +61,8 @@ def HistAvg(dist, n, tot):
 	Where X_i is an iid random variable with distribution dist for all i
 	Z_j will be approximately normal(mu=mean(X_1), stdev(X_1)/sqrt(n)) for all 1 <= j <= tot
 	The histogram plot of all Z_j's will be displayed to help the student visualize the Central Limit Theorem (average case)"""
-	dist = dist.lower()
-	Z_vals = []
-	if dist in ('unif', 'uniform'):
-		a = float(input("Enter a value for a (lower bound): "))
-		b = float(input("Enter a value for b (upper bound): "))
-		for i in range(tot):
-			Z_vals.append(sum([UnifNum(a, b) for _ in range(n)]))
-	if dist in ('expo', 'exponential'):
-		rate = float(input("Enter a value for λ (rate): "))
-		for i in range(tot):
-			Z_vals.append(sum([ExpoNum(rate) for _ in range(n)]))
-	if dist in ('bin', 'bino', 'binomial'):
-		n_ = int(input("Enter a value for n (number of trials per binomial RV): "))
-		p = float(input("Enter a value for p (success probability): "))
-		for i in range(tot):
-			Z_vals.append(sum([BinomialNum(n_, p) for _ in range(n)]))
-	if dist in ('geo', 'geometric'):
-		p = float(input("Enter a value for p (success probability): "))
-		for i in range(tot):
-			Z_vals.append(sum([GeometricNum(p) for _ in range(n)]))
-	if dist in ('discrete uniform', 'discunif', 'disc unif', 'dunif'):
-		a = int(input("Enter a value for a (lower bound): "))
-		b = int(input("Enter a value for b (upper bound): "))
-		for i in range(tot):
-			Z_vals.append(sum([DiscUnifNum2(a, b) for _ in range(n)]))
-	if dist in ('pareto',):
-		alpha = float(input("Enter a value for α (scale parameter): "))
-		for i in range(tot):
-			Z_vals.append(sum([ParetoNum(alpha) for _ in range(n)]))
-	if dist in ('weibull', 'wb', 'wbl'):
-		alpha = float(input("Enter a value for α (shape parameter): "))
-		lambd = float(input("Enter a value for λ (scale parameter): "))
-		for i in range(tot):
-			Z_vals.append(sum([WeibullNum(alpha, lambd) for _ in range(n)]))
 
-	Z_vals = [_/n for _ in Z_vals]
-
+	Z_vals = [_/n for _ in HistSum(dist, n, tot)]
 	to_print =  (f"The mean of this collection of random variables is:  {mean(Z_vals)}"
 				"\n"
 				f"The standard deviation of this collection of random variables is:  {pstdev(Z_vals)}"
