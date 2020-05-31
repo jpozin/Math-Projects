@@ -27,7 +27,7 @@ def HistSum(dist, n, tot):
 		p = float(input("Enter a value for p (success probability): "))
 		for i in range(tot):
 			Z_vals.append(sum([BinomialNum(n_, p) for _ in range(n)]))
-	if dist in ('geo', 'geometric'):
+	if dist in ('geo', 'geom', 'geometric'):
 		p = float(input("Enter a value for p (success probability): "))
 		for i in range(tot):
 			Z_vals.append(sum([GeometricNum(p) for _ in range(n)]))
@@ -77,7 +77,7 @@ def HistAvg(dist, n, tot):
 		p = float(input("Enter a value for p (success probability): "))
 		for i in range(tot):
 			Z_vals.append(sum([BinomialNum(n_, p) for _ in range(n)]))
-	if dist in ('geo', 'geometric'):
+	if dist in ('geo', 'geom', 'geometric'):
 		p = float(input("Enter a value for p (success probability): "))
 		for i in range(tot):
 			Z_vals.append(sum([GeometricNum(p) for _ in range(n)]))
